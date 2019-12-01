@@ -76,7 +76,7 @@ li i:hover ,a:hover{
 }
 
 
-/* ****************** GuestForm************** */
+/* ****************** Movie Form************** */
 
 form {
   display: flex;
@@ -258,7 +258,7 @@ td {
 .container {
   display: block;
   position: relative;
-  padding-left: 25px;
+  padding-left: 18px;
   margin-bottom: 12px;
   cursor: pointer;
   font-size: 1rem;
@@ -279,7 +279,7 @@ td {
   height: 17px;
   width: 17px;
   background-color: #eee;
-  border-radius: 50%;
+  border-radius: 30%;
   transition: all 0.2s ease 0s;
 }
 .container:hover input ~ .checkmark {
@@ -307,7 +307,7 @@ td {
 
 
 
- /* *****************guests style  **********************/
+ /* *****************movie style  **********************/
   .movies {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -318,7 +318,7 @@ td {
   }
 
 
-/****************************** guest card **********************/
+/****************************** movie card **********************/
 .movie-card {
  color:var(--primary-color);
  background: var(--light-color);
