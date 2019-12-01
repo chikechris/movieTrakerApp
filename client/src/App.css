@@ -9,12 +9,13 @@ body{
   padding: 0;
  }
  :root {
-  --primary-color: #043a5a;
+  --primary-color: #1b80d3;
   --dark-color: #333;
-  --light-color: #f4f4f4;
+  --light-color: #a7a7a7;
+  --lighter-color:#e9dddd;
   --danger-color: #dc3545;
   --success-color: #ec8d0f;
-  --xxx-color:#b5b8b7;
+  --xxx-color:#04251a;
 }
 
 /**************Navbar ******************/
@@ -25,9 +26,10 @@ body{
   padding: 0.7rem 2rem;
   z-index: 1;
   width: 100%;
-  color:var(--light-color);
+  color:var(--lighter-color);
   background-color: var(--primary-color);
   margin-bottom: 1rem;
+  border-radius: 45px;
 }
 .logo {
   display: flex;
@@ -467,7 +469,7 @@ cursor: pointer;
             width:95%;
             margin:auto
    }
-   .guests {
+   .movies {
     grid-template-columns: repeat(3, 1fr);
   
    }
@@ -509,17 +511,17 @@ table  {
   flex-wrap: wrap;
   order:3
 }
-.guests {
+.movies {
 margin-top:0;
 }
-.guest-card h1 {
+.movie-card h1 {
   font-size: 1.5rem
 }
 }
 
 @media(max-width:900px){
   
-  .guests {
+  .movies {
     grid-template-columns: repeat(2, 1fr);
   
    }
@@ -556,7 +558,7 @@ margin-top:0;
      font-size: 14px
    }
   
-  .guest-card{
+  .movie-card{
     width: 100%
   }
 table{
