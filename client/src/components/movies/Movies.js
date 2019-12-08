@@ -12,7 +12,7 @@ const Movies = () => {
   return (
     <div className="movies">
       {
-        search !== null ? search.map(movie => <Movie key={movie.id} movie={movie} />) :
+        search !== null ? search.map(movie => <Movie key={movie._id} movie={movie} />) :
           movies.filter(movie => !filterMovie || movie.watched).map(movie => <Movie key={movie.id} movie={movie} />)
       }
     </div>

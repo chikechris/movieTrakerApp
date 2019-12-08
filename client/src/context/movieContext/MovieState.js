@@ -1,6 +1,6 @@
-import React, { useReducer, useState } from 'react';
-import MovieContext from './movieContext';
-import movieReducer from './movieReducer';
+import React, { useReducer, useState } from 'react'
+import MovieContext from './movieContext'
+import movieReducer from './movieReducer'
 import axios from 'axios'
 import {
   TOGGLE_FILTER,
@@ -13,7 +13,7 @@ import {
   UPDATE_MOVIE,
   GET_MOVIES,
   MOVIES_ERROR
-} from '../types';
+} from '../types'
 
 const MovieState = props => {
   const initialState = {
@@ -22,9 +22,9 @@ const MovieState = props => {
     search: null,
     edit: null,
     errors: null
-  };
+  }
 
-  const [state, dispatch] = useReducer(movieReducer, initialState);
+  const [state, dispatch] = useReducer(movieReducer, initialState)
 
   // getMovies
   const getMovies = async () => {
@@ -43,7 +43,7 @@ const MovieState = props => {
   }
 
   // Add movie
-  const addMovie = async (movie) => {
+  const addMovie = async movie => {
     const config = {
       'Content-Type': 'application/json'
     }
@@ -59,19 +59,26 @@ const MovieState = props => {
         payload: err.response.msg
       })
     }
-
   }
 
   // Delete Movie
-  const deleteMovie = id => {
-    dispatch({
-      type: DELETE_MOVIE,
-      payload: id,
-    });
-  };
+  const deleteMovie = async id => {
+    try {
+      await axios.delete(`/movies/${id}`)
+      dispatch({
+        type: DELETE_MOVIE,
+        payload: id
+      })
+    } catch (err) {
+      dispatch({
+        type: MOVIES_ERROR,
+        payload: err.response.msg
+      })
+    }
+  }
 
-  //Edit movie
-  const editMovie = (movie) => {
+  // Edit movie
+  const editMovie = movie => {
     dispatch({
       type: EDIT_MOVIE,
       payload: movie
@@ -81,36 +88,49 @@ const MovieState = props => {
   // Clear edit
   const clearEdit = () => {
     dispatch({
-      type: CLEAR_EDIT,
+      type: CLEAR_EDIT
     })
   }
 
-  //Update movie 
-  const updateMovie = (movie) => {
-    dispatch({
-      type: UPDATE_MOVIE,
-      payload: movie
-    })
+  // Update movie
+  const updateMovie = async movie => {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
+    try {
+      const res = await axios.put(`/movies/${movie._id}`, movie, config)
+      dispatch({
+        type: UPDATE_MOVIE,
+        payload: res.data
+      })
+    } catch (err) {
+      dispatch({
+        type: MOVIES_ERROR,
+        payload: err.response.msg
+      })
+    }
   }
 
   const toggleFilter = () => {
     dispatch({
-      type: TOGGLE_FILTER,
-    });
-  };
+      type: TOGGLE_FILTER
+    })
+  }
 
   const searchMovie = movie => {
     dispatch({
       type: SEARCH_MOVIE,
-      payload: movie,
-    });
-  };
+      payload: movie
+    })
+  }
 
   const clearSearch = () => {
     dispatch({
-      type: CLEAR_SEARCH,
-    });
-  };
+      type: CLEAR_SEARCH
+    })
+  }
 
   return (
     <MovieContext.Provider
@@ -127,12 +147,12 @@ const MovieState = props => {
         clearEdit,
         toggleFilter,
         searchMovie,
-        clearSearch,
+        clearSearch
       }}
     >
       {props.children}
     </MovieContext.Provider>
-  );
-};
+  )
+}
 
-export default MovieState;
+export default MovieState

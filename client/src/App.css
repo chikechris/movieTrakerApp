@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 body{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Georgia', sans-serif;
   position: relative;
 }
 *{
@@ -10,8 +10,9 @@ body{
  }
  :root {
   --primary-color: #1b80d3;
+  --pri-color:#000508;
   --dark-color: #333;
-  --light-color: #a7a7a7;
+  --light-color: #1b6eeb;
   --lighter-color:#e9dddd;
   --danger-color: #dc3545;
   --success-color: #ec8d0f;
@@ -57,7 +58,7 @@ li{
 }
 a{
   text-decoration: none;
-  color:var(--light-color)
+  color:var(--lighter-color)
 }
 li i:hover ,a:hover{
   opacity: 0.5;  
@@ -89,7 +90,7 @@ form {
      flex-basis:33%;
    }
  .invite-section h1 {
-   color: var(--primary-color);
+   color: var(--pri-color);
    padding: 0;
    margin:1rem 0
  }
@@ -129,7 +130,7 @@ form {
 .btn {
   display: inline-block;
   background: var(--primary-color);
-  color:var(--light-color);
+  color:var(--pri-color);
   padding: 0.6rem 1.3rem;
   font-size: 1rem;
   border: none;
@@ -239,12 +240,14 @@ table {
   border-collapse: collapse;
  width: 100%;
  text-transform: capitalize;
- color: var(--primary-color);
- font-size: bold
+ color: var(--pri-color);
+ font-size: bold;
+ 
 }
 td , th{
  text-align: center;
  padding: 0.7rem 1.6rem;
+
 }
 th{
  text-align: left;
@@ -322,7 +325,7 @@ td {
 
 /****************************** movie card **********************/
 .movie-card {
- color:var(--primary-color);
+ color:var(--pri-color);
  background: var(--light-color);
  margin: 0.7rem 0;
  position: relative;

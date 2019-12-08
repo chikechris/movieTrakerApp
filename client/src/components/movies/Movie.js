@@ -4,11 +4,11 @@ import MovieContext from '../../context/movieContext/movieContext';
 
 const Movie = ({ movie }) => {
   const { deleteMovie, updateMovie, editMovie } = useContext(MovieContext);
-  const { id, movie_name, main_actor, movie_type, year, watched } = movie;
+  const { _id, movie_name, main_actor, movie_type, year, watched } = movie;
 
   const handleDelete = () => {
-    deleteMovie(id);
-    console.log('id:', id)
+    deleteMovie(_id);
+    console.log('id:', _id)
   };
 
   const handleWatched = () => {

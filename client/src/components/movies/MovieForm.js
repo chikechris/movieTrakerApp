@@ -49,7 +49,7 @@ const MovieForm = () => {
 
   return (
     <div className='invite-section'>
-      <h1>{edit !== null ? 'Edit Movie' : 'Add Movie'}</h1>
+      <h1>{edit !== null ? 'Edit Movie' : 'Add Movie Here'}</h1>
       <form onSubmit={onSubmit}>
         <input
           type='text'
