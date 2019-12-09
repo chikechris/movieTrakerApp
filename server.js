@@ -7,7 +7,7 @@ const path = require('path')
 // connects to the database
 connectDB()
 
-app.use(express.json({ extended: true }))
+app.use(express.json({ extended: false }))
 
 app.use('/register', require('./routes/register'))
 app.use('/auth', require('./routes/auth'))
