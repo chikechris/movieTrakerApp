@@ -1,4 +1,4 @@
-require('dotenv').config()
+const config = require('config');
 const jwt = require('jsonwebtoken')
 
 const auth = (req, res, next) => {
@@ -7,7 +7,7 @@ const auth = (req, res, next) => {
     return res.status(401).json({ message: 'Access Denied' })
   }
   try {
-    const decoded = jwt.verify(token, process.env.SECRET)
+    const decoded = jwt.verify(token, config.get('SECRET'))
     req.user = decoded.user
     next()
   } catch (err) {
