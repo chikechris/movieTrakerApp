@@ -12,7 +12,8 @@ import {
   CLEAR_EDIT,
   UPDATE_MOVIE,
   GET_MOVIES,
-  MOVIES_ERROR
+  MOVIES_ERROR,
+  CLEAR_MOVIES
 } from '../types'
 
 const MovieState = props => {
@@ -105,10 +106,11 @@ const MovieState = props => {
         type: UPDATE_MOVIE,
         payload: res.data
       })
+      getMovies()
     } catch (err) {
       dispatch({
         type: MOVIES_ERROR,
-        payload: err.response.msg
+        payload: err.response
       })
     }
   }
@@ -132,12 +134,19 @@ const MovieState = props => {
     })
   }
 
+  const clearMovies =() => {
+    dispatch({
+      type: CLEAR_MOVIES
+    })
+  }
+
   return (
     <MovieContext.Provider
       value={{
         movies: state.movies,
         filterMovie: state.filterMovie,
         search: state.search,
+        errors:state.errors,
         edit: state.edit,
         addMovie,
         getMovies,
@@ -147,7 +156,8 @@ const MovieState = props => {
         clearEdit,
         toggleFilter,
         searchMovie,
-        clearSearch
+        clearSearch,
+        clearMovies
       }}
     >
       {props.children}

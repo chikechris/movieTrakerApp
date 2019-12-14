@@ -34,7 +34,7 @@ const Register = (props) => {
       setError({ msg: 'Incorrect password' })
     } else {
       registerUser({ name, email, password })
-      clearError()
+     
     }
   }
   return (

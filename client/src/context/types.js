@@ -1,22 +1,19 @@
-export const TOGGLE_FILTER = 'TOGGLE_FILTER'
-export const SEARCH_MOVIE = 'SEARCH_MOVIE'
-export const CLEAR_SEARCH = 'CLEAR_SEARCH'
-export const ADD_MOVIE = 'ADD_MOVIE'
-export const DELETE_MOVIE = 'DELETE_MOVIE'
-export const EDIT_MOVIE = 'EDIT_MOVIE'
-export const CLEAR_EDIT = 'CLEAR_EDIT'
-export const UPDATE_MOVIE = 'UPDATE_MOVIE'
-
-export const GET_MOVIES = 'GET_MOVIES'
-export const MOVIES_ERROR = 'MOVIES_ERROR'
-
-export const REGISTER_SUCCESS = 'REGISTER_SUCCESS'
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
-export const REGISTER_FAIL = 'REGISTER_FAIL'
-export const LOGIN_FAIL = 'LOGIN_FAIL'
-export const SET_ERROR = 'SET_ERROR'
-export const CLEAR_ERROR = 'CLEAR_ERROR'
-export const LOGOUT = 'LOGOUT'
-export const SET_USER = 'SET_USER'
-export const AUTH_ERROR = 'AUTH_ERROR'
-
+export const TOGGLE_FILTER = 'TOGGLE_FILTER';
+export const SEARCH_MOVIE = 'SEARCH_MOVIE';
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';
+export const ADD_MOVIE = 'ADD_MOVIE';
+export const DELETE_MOVIE = 'DELETE_MOVIE';
+export const EDIT_MOVIE = 'EDIT_MOVIE';
+export const CLEAR_EDIT = 'CLEAR_EDIT';
+export const UPDATE_MOVIE = 'UPDATE_MOVIE';
+export const GET_MOVIES = 'GET_MOVIES';
+export const MOVIES_ERROR = 'MOVIES_ERROR';
+export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const REGISTER_FAIL = 'REGISTER_FAIL';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
+export const LOGOUT = 'LOGOUT';
+export const SET_USER = 'SET_USER';
+export const AUTH_ERROR = 'AUTH_ERROR';
+export const CLEAR_MOVIES = 'CLEAR_MOVIES';

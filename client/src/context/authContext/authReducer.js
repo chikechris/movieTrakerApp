@@ -3,7 +3,6 @@ import {
   LOGIN_SUCCESS,
   REGISTER_FAIL,
   LOGIN_FAIL,
-  SET_ERROR,
   CLEAR_ERROR,
   LOGOUT,
   SET_USER,
@@ -35,14 +34,12 @@ export default (state, action) => {
 
       return {
         ...state,
+        token: null,
         userAuth: null,
+        user: null,
         errors: action.payload
       }
-    case SET_ERROR:
-      return {
-        ...state,
-        errors: action.payload
-      }
+   
     case CLEAR_ERROR:
       return {
         ...state,

@@ -2,7 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import MovieContext from '../../context/movieContext/movieContext';
 
 const MovieForm = () => {
-  const { addMovie, edit, updateMovie, clearEdit } = useContext(MovieContext);
+  const context = useContext(MovieContext)
+  const { addMovie, edit, updateMovie, clearEdit } = context
   useEffect(() => {
     if (edit !== null) {
       setMovie(edit);
@@ -14,7 +15,7 @@ const MovieForm = () => {
         movie_type: 'Action',
       });
     }
-  }, [edit]);
+  }, [edit, context]);
 
   const [movie, setMovie] = useState({
     movie_name: '',
@@ -34,10 +35,12 @@ const MovieForm = () => {
   const onSubmit = e => {
     e.preventDefault();
     if (edit !== null) {
-      updateMovie(movie);
-      clearEdit();
-    } else {
       addMovie(movie);
+  
+    } else {
+      updateMovie(movie) 
+      clearEdit();
+    }
       setMovie({
         movie_name: '',
         main_actor: '',
@@ -45,7 +48,7 @@ const MovieForm = () => {
         movie_type: 'Action',
       });
     }
-  };
+  
 
   return (
     <div className='invite-section'>

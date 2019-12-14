@@ -3,17 +3,19 @@ import { MdEdit, MdDelete } from 'react-icons/md';
 import MovieContext from '../../context/movieContext/movieContext';
 
 const Movie = ({ movie }) => {
-  const { deleteMovie, updateMovie, editMovie } = useContext(MovieContext);
+  const { deleteMovie, updateMovie, editMovie, clearEdit } = useContext(
+    MovieContext
+  );
   const { _id, movie_name, main_actor, movie_type, year, watched } = movie;
 
   const handleDelete = () => {
     deleteMovie(_id);
-    console.log('id:', _id)
+    clearEdit();
   };
 
   const handleWatched = () => {
-    updateMovie({ ...movie, watched: !watched })
-  }
+    updateMovie({ ...movie, watched: !watched });
+  };
   return (
     <div className='movie-card'>
       <div className='card-head'>
@@ -41,12 +43,12 @@ const Movie = ({ movie }) => {
             (movie_type === 'Action'
               ? 'red'
               : movie_type === 'Drama'
-                ? 'blue'
-                : movie_type === 'Horror'
-                  ? 'black'
-                  : movie_type === 'Comedy'
-                    ? 'brown'
-                    : 'pink')
+              ? 'blue'
+              : movie_type === 'Horror'
+              ? 'black'
+              : movie_type === 'Comedy'
+              ? 'brown'
+              : 'pink')
           }
         >
           {movie_type}

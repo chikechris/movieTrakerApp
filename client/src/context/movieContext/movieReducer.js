@@ -8,7 +8,8 @@ import {
   CLEAR_EDIT,
   UPDATE_MOVIE,
   GET_MOVIES,
-  MOVIES_ERROR
+  MOVIES_ERROR,
+  CLEAR_MOVIES
 } from '../types';
 
 export default (state, { type, payload }) => {
@@ -16,12 +17,13 @@ export default (state, { type, payload }) => {
     case GET_MOVIES:
       return {
         ...state,
-        movies: payload
-      }
+        movies: payload,
+        errors: null
+      };
     case ADD_MOVIE:
       return {
         ...state,
-        movies: [...state.movies, payload],
+        movies: [...state.movies, payload]
       };
 
     case DELETE_MOVIE:
@@ -35,43 +37,50 @@ export default (state, { type, payload }) => {
         ...state,
         movies: state.movies.map(movie =>
           movie._id === payload._id ? payload : movie
-        ),
+        )
       };
 
     case EDIT_MOVIE:
       return {
         ...state,
         edit: payload
-      }
+      };
     case CLEAR_EDIT:
       return {
         ...state,
         edit: null
-      }
+      };
 
     case SEARCH_MOVIE:
+      const regex = new RegExp(`${payload}`, 'gi');
       return {
         ...state,
-        search: state.movies.filter(movie => {
-          const regex = new RegExp(`${payload}`, 'gi');
-          return movie.name.match(regex);
-        }),
+        searchMovie: state.movies.filter(movie => movie.name.match(regex))
       };
     case MOVIES_ERROR:
       return {
         ...state,
-        movies: [],
+
         errors: payload
-      }
+      };
     case CLEAR_SEARCH:
       return {
         ...state,
-        search: null,
+        search: null
       };
     case TOGGLE_FILTER:
       return {
         ...state,
-        filterMovie: !state.filterMovie,
+        filterMovie: !state.filterMovie
+      };
+    case CLEAR_MOVIES:
+      return {
+        ...state,
+        filterMovie: false,
+        searchMovie: null,
+        edit: null,
+        movies: [],
+        errors: null
       };
     default:
       return state;

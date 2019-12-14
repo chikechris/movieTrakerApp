@@ -1,13 +1,16 @@
 import React, { useContext, Fragment } from 'react'
 import AuthContext from '../../context/authContext/authContext'
+import MovieContext from '../../context/movieContext/movieContext'
 import { Link } from 'react-router-dom'
 import { MdTheaters, MdSend } from 'react-icons/md'
 
 const Navbar = () => {
   const { logout, clearError, userAuth, user } = useContext(AuthContext)
+  const {clearMovies} = useContext(MovieContext)
 
   const handleLogout = () => {
     logout()
+    clearMovies()
     clearError()
   }
 
