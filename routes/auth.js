@@ -22,7 +22,7 @@ router.post(
   '/',
   [
     check('email', 'Please enter an email').isEmail(),
-    check('password', 'Please enter a password with 5 characters long').exists()
+    check('password', 'Please enter a password with 6 characters long').exists()
   ],
   async (req, res) => {
     const errors = validationResult(req);

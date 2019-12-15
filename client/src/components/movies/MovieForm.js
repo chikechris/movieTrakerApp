@@ -2,8 +2,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import MovieContext from '../../context/movieContext/movieContext';
 
 const MovieForm = () => {
-  const context = useContext(MovieContext)
-  const { addMovie, edit, updateMovie, clearEdit } = context
+  const context = useContext(MovieContext);
+  const { addMovie, edit, updateMovie, clearEdit } = context;
   useEffect(() => {
     if (edit !== null) {
       setMovie(edit);
@@ -12,7 +12,7 @@ const MovieForm = () => {
         movie_name: '',
         main_actor: '',
         year: '',
-        movie_type: 'Action',
+        movie_type: 'Action'
       });
     }
   }, [edit, context]);
@@ -21,7 +21,7 @@ const MovieForm = () => {
     movie_name: '',
     main_actor: '',
     year: '',
-    movie_type: 'Action',
+    movie_type: 'Action'
   });
 
   const { movie_name, main_actor, year, movie_type } = movie;
@@ -29,26 +29,24 @@ const MovieForm = () => {
   const onChange = e => {
     setMovie({
       ...movie,
-      [e.target.name]: e.target.value,
+      [e.target.name]: e.target.value
     });
   };
   const onSubmit = e => {
     e.preventDefault();
-    if (edit !== null) {
+    if (edit == null) {
       addMovie(movie);
-  
     } else {
-      updateMovie(movie) 
+      updateMovie(movie);
       clearEdit();
     }
-      setMovie({
-        movie_name: '',
-        main_actor: '',
-        year: '',
-        movie_type: 'Action',
-      });
-    }
-  
+    setMovie({
+      movie_name: '',
+      main_actor: '',
+      year: '',
+      movie_type: 'Action'
+    });
+  };
 
   return (
     <div className='invite-section'>
@@ -139,7 +137,14 @@ const MovieForm = () => {
           value={edit !== null ? 'Update Movie' : 'Submit Movie'}
           className='btn'
         />
-        {edit !== null ? <input onClick={clearEdit} value='Cancel' type='button' className='btn clear' /> : null}
+        {edit !== null ? (
+          <input
+            onClick={clearEdit}
+            value='Cancel'
+            type='button'
+            className='btn clear'
+          />
+        ) : null}
       </form>
     </div>
   );
